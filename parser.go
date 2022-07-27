@@ -51,11 +51,11 @@ func main() {
 		}
 		data.add(afi)
 		switch {
-		case afi == 4 && daddr == "255.255.255.255":
+		case afi == "inet" && daddr == "255.255.255.255":
 			data.add("bcast")
-		case afi == 4 && strings.HasPrefix(daddr, "224."):
+		case afi == "inet" && strings.HasPrefix(daddr, "224."):
 			data.add("mcast")
-		case afi == 6 && strings.HasPrefix(daddr, "ff02::"):
+		case afi == "inet6" && strings.HasPrefix(daddr, "ff02::"):
 			data.add("mcast")
 		}
 	}
